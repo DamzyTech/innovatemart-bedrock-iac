@@ -232,4 +232,28 @@ output "cluster_oidc_issuer_url" {
 <img width="662" height="397" alt="image" src="https://github.com/user-attachments/assets/ef7807e6-5e70-46b6-af96-4e4883d565f8" />
 <img width="955" height="442" alt="image" src="https://github.com/user-attachments/assets/10ec11d5-c53e-45d7-b051-837c5ca04988" />
 
+#### Phase 4: Configure Developer Access
+1. Create IAM User:
+- Created dev-team-user via AWS Console (IAM > Users > Add User) with programmatic and console access.
+- Saved Access Key ID, Secret Access Key, and console password.
+2. Attach Read-Only Policies:
 
+  - {
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "eks:DescribeCluster",
+        "eks:ListClusters",
+        "logs:DescribeLogGroups",
+        "logs:DescribeLogStreams",
+        "logs:GetLogEvents"
+      ],
+      "Resource": "*"
+    }
+  ]
+
+}
+
+3. 
